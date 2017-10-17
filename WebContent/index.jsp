@@ -393,9 +393,9 @@
 					<div class="footer-col col-md-4">
 						<h3>Location</h3>
 						<p>
-							University of Kansas,<br>
-							1450 Jayhawk Blvd, Lawrence, <br>
-							Kansas 66045, USA
+							University of Central Missouri,<br>
+							1101 NW Innovation Parkway, Lee's Summit, <br>
+							MO 64086, USA
 						</p>
 					</div>
 					<div class="footer-col col-md-4">
