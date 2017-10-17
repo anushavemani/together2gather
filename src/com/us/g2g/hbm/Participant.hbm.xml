@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 3, 2017 12:41:26 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="g2gdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.us.g2g.hbm.Participant" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="participant">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.us.g2g.hbm.Event" embed-xml="true" fetch="join" insert="true" name="event" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="event_id"/>
+        </many-to-one>
+        <many-to-one class="com.us.g2g.hbm.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="user_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="dateTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="0" name="date_time" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="note" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="note"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="status"/>
+        </property>
+    </class>
+</hibernate-mapping>

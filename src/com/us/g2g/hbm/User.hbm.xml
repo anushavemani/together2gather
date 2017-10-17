@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 3, 2017 12:41:26 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="g2gdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.us.g2g.hbm.User" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="user">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="shortName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="short_name"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="email"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="password"/>
+        </property>
+        <property generated="never" lazy="false" name="role" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="role"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="commentsForApprovedBy" optimistic-lock="true" sort="unsorted" table="comment">
+            <key on-delete="noaction">
+                <column name="approved_by"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Comment" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="photosForUserId" optimistic-lock="true" sort="unsorted" table="photo">
+            <key on-delete="noaction">
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Photo" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="commentsForPostedBy" optimistic-lock="true" sort="unsorted" table="comment">
+            <key on-delete="noaction">
+                <column name="posted_by"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Comment" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="participants" optimistic-lock="true" sort="unsorted" table="participant">
+            <key on-delete="noaction">
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Participant" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="eventsForCreatedBy" optimistic-lock="true" sort="unsorted" table="event">
+            <key on-delete="noaction">
+                <column name="created_by"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Event" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="payments" optimistic-lock="true" sort="unsorted" table="payment">
+            <key on-delete="noaction">
+                <column name="paid_by"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Payment" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="photosForApprovedBy" optimistic-lock="true" sort="unsorted" table="photo">
+            <key on-delete="noaction">
+                <column name="approved_by"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Photo" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="eventsForApprovedBy" optimistic-lock="true" sort="unsorted" table="event">
+            <key on-delete="noaction">
+                <column name="approved_by"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Event" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

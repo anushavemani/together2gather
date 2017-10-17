@@ -1,0 +1,37 @@
+<h1>Pending Events</h1>
+<section class="panel general" ng-controller="PendingController">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>S.No</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>POC Name</th>
+				<th>POC Contact</th>
+				<th>Occurance</th>
+				<th>Posted On</th>
+				<th>Posted By</th>
+				<th>Est. Budget</th>
+				<th>Exp. Fund</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="event in events">
+				<td>{{$index + 1}}</td>
+				<td>{{event.title}}</td>
+				<td>{{event.description}}</td>
+				<td>{{event.pocName}}</td>
+				<td>{{event.pocContact}}</td>
+				<td>{{event.occuranceDate}} {{event.occuranceTime}}</td>
+				<td>{{event.dateTime | date:'medium'}}</td>
+				<td>{{event.postedBy}}</td>
+				<td>{{event.estimatedBudget}}</td>
+				<td>{{event.exepectedFund}}</td>
+				<td>
+					<button class="btn btn-primary btn-sm" ng-click="approveEvent(event.id)">Approve</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

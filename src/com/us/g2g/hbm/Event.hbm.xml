@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 3, 2017 12:41:26 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="g2gdb" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.us.g2g.hbm.Event" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="event">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.us.g2g.hbm.User" embed-xml="true" fetch="select" insert="true" name="userByCreatedBy" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="created_by"/>
+        </many-to-one>
+        <many-to-one class="com.us.g2g.hbm.User" embed-xml="true" fetch="select" insert="true" name="userByApprovedBy" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="approved_by"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="title" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="title"/>
+        </property>
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column length="3000" name="description"/>
+        </property>
+        <property generated="never" lazy="false" name="lat" optimistic-lock="true" type="java.lang.Double" unique="false">
+            <column name="lat" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="lng" optimistic-lock="true" type="java.lang.Double" unique="false">
+            <column name="lng" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="estimatedBudget" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="estimated_budget"/>
+        </property>
+        <property generated="never" lazy="false" name="receivedFund" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="received_fund"/>
+        </property>
+        <property generated="never" lazy="false" name="exepectedFund" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="exepected_fund"/>
+        </property>
+        <property generated="never" lazy="false" name="pocName" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="poc_name"/>
+        </property>
+        <property generated="never" lazy="false" name="pocContact" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="poc_contact"/>
+        </property>
+        <property generated="never" lazy="false" name="occuranceTime" optimistic-lock="true" type="string" unique="false">
+            <column length="0" name="occurance_time"/>
+        </property>
+        <property generated="never" lazy="false" name="occuranceDate" optimistic-lock="true" type="string" unique="false">
+            <column length="0" name="occurance_date"/>
+        </property>
+        <property generated="never" lazy="false" name="dateTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="0" name="date_time"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="status"/>
+        </property>
+        <property generated="never" lazy="false" name="approvedOn" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="0" name="approved_on"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="payments" optimistic-lock="true" sort="unsorted" table="payment">
+            <key on-delete="noaction">
+                <column name="event_id"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Payment" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="participants" optimistic-lock="true" sort="unsorted" table="participant">
+            <key on-delete="noaction">
+                <column name="event_id"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Participant" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="false" mutable="true" name="photos" optimistic-lock="true" sort="unsorted" table="photo">
+            <key on-delete="noaction">
+                <column name="event_id"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Photo" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="false" mutable="true" name="comments" optimistic-lock="true" sort="unsorted" table="comment">
+            <key on-delete="noaction">
+                <column name="event_id"/>
+            </key>
+            <one-to-many class="com.us.g2g.hbm.Comment" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

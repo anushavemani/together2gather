@@ -1,0 +1,27 @@
+<h1>Pending Comments</h1>
+<section class="panel general" ng-controller="PendingController">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>S.No</th>
+				<th>Event</th>
+				<th>Comment</th>
+				<th>Posted By</th>
+				<th>Posted On</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="comment in comments">
+				<td>{{$index + 1}}</td>
+				<td>{{comment.event}}</td>
+				<td>{{comment.text}}</td>
+				<td>{{comment.postedBy}}</td>
+				<td>{{comment.dateTime | date:'medium'}}</td>
+				<td>
+					<button class="btn btn-primary btn-sm" ng-click="approveComment(comment.id)">Approve</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
