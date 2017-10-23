@@ -393,9 +393,9 @@
 					<div class="footer-col col-md-4">
 						<h3>Location</h3>
 						<p>
-							University of Central Missouri,<br>
-							1101 NW Innovation Parkway, Lee's Summit, <br>
-							MO 64086, USA
+							University of Kansas,<br>
+							1450 Jayhawk Blvd, Lawrence, <br>
+							Kansas 66045, USA
 						</p>
 					</div>
 					<div class="footer-col col-md-4">
@@ -730,7 +730,7 @@
 									<span class="label label-warning" ng-show="payment.status == 'PENDING'">{{payment.status}}</span>
 									<span class="label label-success" ng-show="payment.status == 'SUCCESS'">{{payment.status}}</span>
 									</td>
-									<td>{{payment.paidOn | date:'medium'}}</td>
+									<td>{{payment.paidOn}}</td>
 									<td>{{payment.gatewayId}}</td>
 								</tr>
 							</tbody>
@@ -815,7 +815,9 @@
 										<div class="row">
 											<span class="req-input invalid"> <span
 												class="input-status" data-toggle="tooltip"
-												data-placement="top" title="Event Title"> </span> <input
+												data-placement="top" title="Event Title"> </span> 
+												<input data-toggle="tooltip"
+												data-placement="right" title="Alphanumerics with minimum 8 characters"
 												type="text" data-min-length="8" placeholder="Event Title"
 												name="event_title" />
 											</span>
@@ -824,7 +826,10 @@
 										<div class="row">
 											<span class="req-input message-box invalid"> <span
 												class="input-status" data-toggle="tooltip"
-												data-placement="top" title="Event Description"> </span> <textarea
+												data-placement="top" title="Event Description"> </span> 
+											<textarea
+												data-toggle="tooltip"
+												data-placement="right" title="Alphanumerics with minimum 10 characters"
 													type="textarea" data-min-length="10"
 													name="event_description" placeholder="Event Description"></textarea>
 											</span>
@@ -832,7 +837,10 @@
 										<div class="row">
 											<span class="req-input invalid"> <span
 												class="input-status" data-toggle="tooltip"
-												data-placement="top" title="Point of Contact."> </span> <input
+												data-placement="top" title="Point of Contact."> </span> 
+											<input
+											data-toggle="tooltip"
+												data-placement="right" title="Alphanumerics with minimum 8 characters"
 												type="text" data-min-length="8" placeholder="POC Name"
 												name="poc_name">
 											</span>
@@ -840,7 +848,10 @@
 										<div class="row">
 											<span class="req-input invalid"> <span
 												class="input-status" data-toggle="tooltip"
-												data-placement="top" title="POC Phone Number."> </span> <input
+												data-placement="top" title="POC Phone Number."> </span> 
+												<input
+												data-toggle="tooltip"
+												data-placement="right" title="Numerics with minimum 10 characters"
 												type="tel" placeholder="Phone Number" name="poc_contact">
 											</span>
 										</div>
@@ -849,7 +860,10 @@
 										<div class="row">
 											<span class="req-input invalid"> <span
 												class="input-status" data-toggle="tooltip"
-												data-placement="top" title="Estimated Fund"> </span> <input
+												data-placement="top" title="Estimated Fund"> </span> 
+												<input
+												data-toggle="tooltip"
+												data-placement="right" title="Numerics with minimum 2 characters"
 												type="number" placeholder="Estimated Fund" required
 												name="estimated_budget">
 											</span>
@@ -858,7 +872,10 @@
 										<div class="row">
 											<span class="req-input invalid"> <span
 												class="input-status" data-toggle="tooltip"
-												data-placement="top" title="Expected Funding."> </span> <input
+												data-placement="top" title="Expected Funding."> </span> 
+											<input
+												data-toggle="tooltip"
+												data-placement="right" title="Numerics with minimum 2 characters"
 												type="number" placeholder="Expected Fund" required
 												name="expected_fund">
 											</span>
