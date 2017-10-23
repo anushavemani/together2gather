@@ -1,5 +1,3 @@
-
-
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.Set"%>
 <%@page import="com.us.g2g.hbm.Event"%>
@@ -32,40 +30,58 @@ Set<Photo> photos = event.getPhotos();
 		<div class="row">
 			<span class="req-input invalid" >
 				<span class="input-status" data-toggle="tooltip" data-placement="top" title="Event Title"></span>
-				<input type="text" data-min-length="8" placeholder="Event Title" required value="<%=event.getTitle()%>" name="event_title"/>
+				<input type="text" 
+				data-toggle="tooltip"
+				data-placement="right" title="Alphanumerics with minimum 8 characters"
+				data-min-length="8" placeholder="Event Title" required value="<%=event.getTitle()%>" name="event_title"/>
 			</span>
 		</div>
 	
 		<div class="row">
 			<span class="req-input message-box invalid">
 				<span class="input-status" data-toggle="tooltip" data-placement="top" title="Event Description"> </span>
-				<textarea type="textarea" data-min-length="10" name="event_description" required placeholder="Event Description"><%=event.getDescription()%></textarea>
+				<textarea type="textarea" 
+				data-toggle="tooltip"
+				data-placement="right" title="Alphanumerics with minimum 10 characters"
+				data-min-length="10" name="event_description" required placeholder="Event Description"><%=event.getDescription()%></textarea>
 			</span>
 		</div>
 		<div class="row">
 			<span class="req-input invalid" >
 				<span class="input-status" data-toggle="tooltip" data-placement="top" title="Point of Contact."> </span>
-				<input type="text" data-min-length="8" placeholder="POC Name" name="poc_name" required  value="<%=event.getPocName()%>">
+				<input type="text" 
+				data-toggle="tooltip"
+				data-placement="right" title="Alphanumerics with minimum 8 characters"
+				data-min-length="8" placeholder="POC Name" name="poc_name" required  value="<%=event.getPocName()%>">
 			</span>
 		</div>
 		<div class="row">
 			<span class="req-input invalid">
 				<span class="input-status" data-toggle="tooltip" data-placement="top" title="POC Phone Number."> </span>
-				<input type="tel" placeholder="Phone Number" name="poc_contact" required  value="<%=event.getPocContact()%>">
+				<input type="tel" 
+				data-toggle="tooltip"
+				data-placement="right" title="Numerics with minimum 10 characters"
+				placeholder="Phone Number" name="poc_contact" required  value="<%=event.getPocContact()%>">
 			</span>
 		</div>
 		
 		<div class="row">
 			<span class="req-input invalid">
 				<span class="input-status" data-toggle="tooltip" data-placement="top" title="Estimated Budget"> </span>
-				<input type="number" placeholder="Estimated Budget" required name="estimated_budget"  value="<%=event.getEstimatedBudget()%>">
+				<input 
+				data-toggle="tooltip"
+				data-placement="right" title="Numerics with minimum 2 characters"
+				type="number" placeholder="Estimated Budget" required name="estimated_budget"  value="<%=event.getEstimatedBudget()%>">
 			</span>
 		</div>
 		
 		<div class="row">
 			<span class="req-input invalid">
 				<span class="input-status" data-toggle="tooltip" data-placement="top" title="Expected Funding."> </span>
-				<input type="number" placeholder="Expected Fund" required name="expected_fund"  value="<%=event.getExepectedFund()%>">
+				<input type="number"
+				data-toggle="tooltip"
+				data-placement="right" title="Numerics with minimum 2 characters"
+				placeholder="Expected Fund" required name="expected_fund"  value="<%=event.getExepectedFund()%>">
 			</span>
 		</div>
 		<div class="row">
@@ -89,7 +105,7 @@ Set<Photo> photos = event.getPhotos();
 	    	%>
 	    	<div class="col-md-4">
 		    	<div class="thumbnail">
-			      <a class="close" href="#" onclick="deletePic(<%=event.getId()%>,<%=photo.getId()%>)">×</a>
+			      <a class="close" href="#" onclick="deletePic(<%=event.getId()%>,<%=photo.getId()%>)">?</a>
 			      <img src="data:image/jpeg;base64,<%=photo.getSource()%>">
 			    </div>
 		    </div>
